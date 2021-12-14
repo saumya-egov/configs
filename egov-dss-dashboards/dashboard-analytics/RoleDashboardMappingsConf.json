@@ -15,6 +15,14 @@
         {
           "name": "Faecal Sludge Management",
           "id": "fsm"
+        },
+        {
+          "name": "Trade License",
+          "id": "tradeLicense"
+        },
+        {
+          "name": "Overview",
+          "id": "overview"
         }
       ]
     },
@@ -32,7 +40,10 @@
           
         {
           "id": "ulb-fsm"
-        }
+        },
+        {
+          "id": "ulb-tradeLicense"
+        }        
       ]
     }
 
