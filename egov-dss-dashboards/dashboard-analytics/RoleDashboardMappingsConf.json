@@ -21,6 +21,17 @@
           "id": "tradeLicense"
         },
         {
+          "name": "Property Tax",
+          "id": "propertyTax"
+        }, 
+        {
+          "name": "PGR",
+          "id": "pgr"
+        },
+        {
+          "id": "ws"
+        },        
+        {
           "name": "Overview",
           "id": "overview"
         }
