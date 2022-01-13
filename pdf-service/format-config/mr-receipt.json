@@ -23,7 +23,7 @@
               {
                 "stack": [
                   {
-                    "text": "{{logo-header}} {{ulb_grade}}",
+                    "text": "{{ulb-name}} {{ulb-grade}}",
                     "style": "receipt-logo-header"
                   },
                   {
@@ -219,55 +219,13 @@
             "25%",
             "25%"
           ],
-          "body": [
-            [
-              {
-                "text": "{{service_type}}",
-                "border": [
-                  true,
-                  true,
-                  false,
-                  false
-                ],
-                "style": "receipt-table-value"
-              },
-              {
-                "text": "{{serviceType}}",
-                "border": [
-                  false,
-                  true,
-                  false,
-                  false
-                ],
-                "style": "receipt-table"
-              },
-              {
-                "text": "{{billing_period}}",
-                "border": [
-                  false,
-                  true,
-                  false,
-                  false
-                ],
-                "style": "receipt-table-value"
-              },
-              {
-                "text": "{{fromPeriod}} {{to}} {{toPeriod}}",
-                "border": [
-                  false,
-                  true,
-                  true,
-                  false
-                ],
-                "style": "receipt-table"
-              }
-            ],
+          "body": [            
             [
               {
                 "text": "{{total_bill_amount}}",
                 "border": [
                   true,
-                  false,
+                  true,
                   false,
                   false
                 ],
@@ -277,7 +235,7 @@
                 "text": "₹ {{dueAmount}}",
                 "border": [
                   false,
-                  false,
+                  true,
                   false,
                   false
                 ],
@@ -287,7 +245,7 @@
                 "text": "{{paid_amount}}",
                 "border": [
                   false,
-                  false,
+                  true,
                   false,
                   false
                 ],
@@ -297,49 +255,7 @@
                 "text": "₹ {{paidAmount}}",
                 "border": [
                   false,
-                  false,
                   true,
-                  false
-                ],
-                "style": "receipt-table"
-              }
-            ],
-            [
-              {
-                "text": "{{pending_amount}}",
-                "border": [
-                  true,
-                  false,
-                  false,
-                  false
-                ],
-                "style": "receipt-table-value"
-              },
-              {
-                "text": "₹ {{pendingAmount}}",
-                "border": [
-                  false,
-                  false,
-                  false,
-                  false
-                ],
-                "style": "receipt-table"
-              },
-              {
-                "text": "{{excess_amount_paid}}",
-                "border": [
-                  false,
-                  false,
-                  false,
-                  false
-                ],
-                "style": "receipt-table-value"
-              },
-              {
-                "text": "₹ {{excessAmountPaid}}",
-                "border": [
-                  false,
-                  false,
                   true,
                   false
                 ],
@@ -469,10 +385,6 @@
         ]
       },
       {
-        "style": "no-signature",
-        "text": "{{no_signature}}"
-      },
-      {
         "style": "pt-disclaimer",
         "stack": [
           {
@@ -548,7 +460,7 @@
       "fontSize": 12,
       "fontWeight": 500,
       "margin": [
-        -2,
+        8,
         8,
         0,
         8
@@ -560,7 +472,7 @@
       "fontSize": 12,
       "fontWeight": 400,
       "margin": [
-        -30,
+        -10,
         8,
         0,
         8
@@ -581,7 +493,7 @@
       "fontSize": 12,
       "margin": [
         -27,
-        35,
+        10,
         -10,
         0
       ],
@@ -591,7 +503,7 @@
       "fontSize": 12,
       "margin": [
         -27,
-        30,
+        10,
         -10,
         0
       ],

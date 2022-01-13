@@ -984,6 +984,10 @@
                                         "type": "image"
                                     },
                                     {
+                                        "variable": "cityName",
+                                        "value": "$.MdmsRes.tenant.tenants[0].city.name"
+                                    },
+                                    {
                                         "variable": "wsBillHeaderLine1",
                                         "value": "$.MdmsRes.tenant.tenants[0].city.wsBillHeaderLine1"
                                     },
@@ -999,6 +1003,60 @@
                                             "prefix": "TENANT_TENANTS",
                                             "module": "rainmaker-common"
                                         }
+                                    }
+                                ]
+                            },
+                            {
+                                "path": "http://collection-services:8080/collection-services/payments/WS.ONE_TIME_FEE/_search",
+                                "queryParam":  "tenantId=$.tenantId,consumerCodes=$.applicationNo",
+                                "apiRequest": null,
+                                "responseMapping": [
+                                    {             
+                                        "variable":"securityFee",
+                                        "value":"$.Payments[0].paymentDetails[0].bill.billDetails[0].billAccountDetails[?(@.taxHeadCode == 'WS_SECURITY_CHARGE')].amount"
+                                    },
+									{             
+                                        "variable":"scrutinyFee",
+                                        "value":"$.Payments[0].paymentDetails[0].bill.billDetails[0].billAccountDetails[?(@.taxHeadCode == 'WS_SCRUTINY_FEE')].amount"
+                                    },
+									{             
+                                        "variable":"receiptNumber",
+                                        "value":"$.Payments[0].paymentDetails[0].receiptNumber"
+                                    }
+                                ]
+                            },
+                            {
+                                "path": "http://ws-services:8080/ws-services/wc/_search",
+                                "queryParam":  "tenantId=$.tenantId,applicationNumber=$.applicationNo",
+                                "apiRequest": null,
+                                "responseMapping": [
+                                    {             
+                                        "variable":"connectionHolderName",
+                                        "value":"$.WaterConnection[0].connectionHolders[0].name"
+                                    },
+                                    {
+                                        "variable":"connectionHolderAddress",
+                                        "value":"$.WaterConnection[0].connectionHolders[0].correspondenceAddress"
+                                    },
+                                    {             
+                                        "variable":"connectionNo",
+                                        "value":"$.WaterConnection[0].connectionNo"
+                                    },
+                                    {             
+                                        "variable":"existingConnectionNo",
+                                        "value":"$.WaterConnection[0].oldConnectionNo"
+                                    },
+                                    {             
+                                        "variable":"connectionType",
+                                        "value":"$.WaterConnection[0].connectionType"
+                                    },
+                                    {             
+                                        "variable":"usageCategory",
+                                        "value":"$.WaterConnection[0].usageCategory"
+                                    },
+                                    {             
+                                        "variable":"noOfTaps",
+                                        "value":"$.WaterConnection[0].noOfTaps"
                                     }
                                 ]
                             }

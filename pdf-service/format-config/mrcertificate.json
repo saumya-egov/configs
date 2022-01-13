@@ -3,7 +3,7 @@
   "config": {
     "defaultStyle": {
       "font": "Cambay",
-      "fontSize": 12,
+      "fontSize": 11,
       "color": "#484848",
       "lineHeight": 0.9,
       "margin": [
@@ -260,10 +260,10 @@
                         "bold": true
                       },
                       {
-                        "text": " and that the same has been registered this day on the "
+                        "text": " and that the same has been registered this day on "
                       },
                       {
-                        "text": "4th of August, 2021",
+                        "text": "{{certificateIssueDate}}",
                         "bold": true
                       },
                       {
