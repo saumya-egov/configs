@@ -27,10 +27,10 @@ ServiceMaps:
         - inJsonPath: $.@timestamp
           outJsonPath: $.Data.@timestamp
         mdmsMapping:
-        - path: http://egov-mdms-service.egov:8080/egov-mdms-service/v1/_search
+        - path: http://egov-mdms-service:8080/egov-mdms-service/v1/_search
           moduleName: tenant
           masterName: tenants
-          tenantId: pg
+          tenantId: od
           filter: "[?(@.code == $tenant)]"
           filterMapping:
           - variable: $tenant
@@ -48,7 +48,7 @@ ServiceMaps:
       isBulk: true
       timeStampField: $.auditDetails.createdDate
       jsonPath: $.hits
-
+ 
   - topic: egov.collection.receipt-create-legacyindex
     configKey: LEGACYINDEX
     indexes:
@@ -74,10 +74,10 @@ ServiceMaps:
         - inJsonPath: $.@timestamp
           outJsonPath: $.Data.@timestamp
         mdmsMapping:
-        - path: http://egov-mdms-service.egov:8080/egov-mdms-service/v1/_search
+        - path: http://egov-mdms-service:8080/egov-mdms-service/v1/_search
           moduleName: tenant
           masterName: tenants
-          tenantId: pg
+          tenantId: od
           filter: "[?(@.code == $tenant)]"
           filterMapping:
           - variable: $tenant
