@@ -4913,6 +4913,29 @@
     },
     "_comment": " "
   },
+  "fsmCollectionByGender": {
+    "chartName": "DSS_FSM_RESQUEST_BY_GENDER",
+    "queries": [
+      {
+        "module": "FSM",
+        "dateRefField": "Data.fsm.@timestamp",
+        "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\", \"tenantId\" : \"Data.tenantData.code\" ,  \"district\" : \"Data.tenantData.city.districtCode\"}",
+        "indexName": "fsm",
+        "aggrQuery": "{ \"aggs\": {\"AGGR\": {\"filter\": {\"bool\": {\"must_not\": [{\"term\": {\"Data.fsm.tenantId.keyword\": \"pg.testing\"}}]}}, \"aggs\": {\"Gender\": {\"terms\": {\"field\": \"Data.fsm.citizen.gender.keyword\"},\"aggs\": {\"Assessed Properties\": {\"sum\": {\"field\": \"Data.payments.paymentDetails.bill.billDetails.amountPaid\"}}}}}}}}"
+      }
+    ],
+    "chartType": "pie",
+    "valueType": "amount",
+    "action": "",
+    "documentType": "_doc",
+    "drillChart": "none",
+    "aggregationPaths": [
+      "Gender"
+    ],
+    "insight": {
+    },
+    "_comment": " "
+  },
   "fsmVehicleLogReportByDDR": {
     "chartName": "DSS_FSM_VECHILE_LOG_REPORT",
     "queries": [
@@ -4921,7 +4944,7 @@
         "dateRefField": "Data.vehicleTrip.@timestamp",
         "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\", \"tenantId\" : \"Data.tenantData.code\" ,  \"district\" : \"Data.tenantData.city.districtName\"}",
         "indexName": "vehicletrip",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"data.vehicleTrip.tenantId.keyword\":\"od.testing\"}}]}},\"aggs\":{\"NoOfTrips\":{\"value_count\":{\"field\":\"Data.vehicleTrip.@timestamp\"}},\"TotalSeptageCollected\":{\"sum\":{\"script\":{\"source\":\"(doc['Data.vehicleTrip.tripDetails.volume'].value)/1000.0\"}}},\"TotalSeptageDumped\":{\"sum\":{\"script\":{\"source\":\"(doc['Data.vehicleTrip.volumeCarried'].value)/1000.0\"}}},\"CapacityUtilization\":{\"sum\":{\"script\":{\"source\":\"(doc['Data.vehicleTrip.volumeCarried'].value)/1000.0\"}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"data.fsm.tenantId.keyword\":\"od.testing\"}}]}},\"aggs\":{\"NoOfTrips\":{\"value_count\":{\"field\":\"Data.vehicleTrip.@timestamp\"}},\"TotalSeptageCollected\":{\"sum\":{\"script\":{\"source\":\"(doc['Data.vehicleTrip.tripDetails.volume'].value)/1000.0\"}}},\"TotalSeptageDumped\":{\"sum\":{\"script\":{\"source\":\"(doc['Data.vehicleTrip.volumeCarried'].value)/1000.0\"}}},\"CapacityUtilization\":{\"sum\":{\"script\":{\"source\":\"(doc['Data.vehicleTrip.volumeCarried'].value)/1000.0\"}}}}}}}"
       }
     ],
     "isMdmsEnabled": true,
